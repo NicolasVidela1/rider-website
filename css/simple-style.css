@@ -1,0 +1,172 @@
+/* =========================
+   SIMPLE STYLE
+========================= */
+
+/* -------- VARIABLES -------- */
+
+:root {
+  --bg: #ffffff;
+  --card: #f4f4f5;
+  --text: #1d1e20;
+  --text-light: #555;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+}
+
+[data-theme="dark"] {
+  --bg: #1d1e20;
+  --card: #2e2e33;
+  --text: #e5e5e5;
+  --text-light: #a1a1aa;
+  --border: #3f3f46;
+  --accent: #3b82f6;
+}
+
+/* -------- RESET -------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+}
+
+/* -------- LAYOUT -------- */
+
+.container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* -------- HEADER -------- */
+
+.header {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* -------- TITLES -------- */
+
+h1, h2, h3 {
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+/* -------- LINKS -------- */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* -------- POSTS (cards) -------- */
+
+.post-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* -------- BUTTONS -------- */
+
+.button {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  background: var(--accent);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: opacity 0.15s ease;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+/* -------- FOOTER -------- */
+
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+/* -------- CODE BLOCKS -------- */
+
+pre {
+  background: var(--card);
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 6px;
+}
+
+code {
+  background: var(--card);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* -------- RESPONSIVE -------- */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
