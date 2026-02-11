@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firulais Demo</title>
+  <link rel="stylesheet" href="css/simple-style_3.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Firulais 🌙 / ☀️</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Archive</a></li>
+        <li><a href="#">Tags</a></li>
+        <li><a href="#">WiKi</a></li>
+      </ul>
+    </nav>
+    <!-- Botón toggle aquí -->
+    <button class="toggle-btn" id="toggleThemeBtn">Modo Claro</button>
+  </header>
+
+  <main>
+    <h1>Bienvenido a Firulais Demo</h1>
+    <p>
+      👋 Este es un ejemplo simplificado del tema Firulais.<br />
+      Diseño limpio y responsivo.<br />
+      Colores claros y oscuros con toggle.<br />
+      Botones y links estilizados.
+    </p>
+
+    <article class="post-entry">
+      <h2><a href="#" class="post-link">Instalación</a></h2>
+      <p>Instrucciones para instalar Firulais y configurarlo fácilmente.</p>
+      <footer>Publicado el 20 Enero, 2021 · 5 min lectura</footer>
+    </article>
+
+    <article class="post-entry">
+      <h2><a href="#" class="post-link">Características</a></h2>
+      <p>Lista de todas las características y mods disponibles.</p>
+      <footer>Publicado el 20 Enero, 2021 · 7 min lectura</footer>
+    </article>
+  </main>
+
+  <footer>
+    © Firulais Contributors · Powered by Firulais
+  </footer>
+
+  <script>
+    // Toggle modo oscuro / claro
+    const btn = document.getElementById('toggleThemeBtn');
+    const body = document.body;
+
+    btn.addEventListener('click', () => {
+      body.classList.toggle('light');
+      if(body.classList.contains('light')) {
+        btn.textContent = 'Modo Oscuro';
+      } else {
+        btn.textContent = 'Modo Claro';
+      }
+    });
+  </script>
+</body>
+</html>
