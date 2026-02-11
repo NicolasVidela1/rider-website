@@ -1,0 +1,173 @@
+/* Paleta de colores */
+:root {
+  --background-light: #f5f5f5;
+  --content-light: #222222;
+  --primary-light: #ffb86c;
+  --secondary-light: #50fa7b;
+  --tertiary-light: #6272a4;
+  --border-light: #dddddd;
+  --entry-light: #ffffff;
+
+  --background-dark: #1D1E20;
+  --content-dark: #9B9C9D;
+  --primary-dark: #DADADB;
+  --secondary-dark: #DADADB;
+  --tertiary-dark: #9B9C9D;
+  --border-dark: #ff0000;
+  --entry-dark: #2E2E33;
+}
+
+/* Variables según tema */
+body {
+  --background: var(--background-dark);
+  --content: var(--content-dark);
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --tertiary: var(--tertiary-dark);
+  --border: var(--border-dark);
+  --entry: var(--entry-dark);
+
+  background: var(--background);
+  color: var(--content);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.light {
+  --background: var(--background-light);
+  --content: var(--content-light);
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --tertiary: var(--tertiary-light);
+  --border: var(--border-light);
+  --entry: var(--entry-light);
+
+  background: var(--background);
+  color: var(--content);
+}
+
+/* Reset básico */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 30px;
+}
+
+/* Nav */
+nav ul { list-style:none; display:flex; gap:20px; }
+nav a { color: var(--tertiary); text-decoration:none; font-weight:600; transition:0.3s; }
+nav a:hover { color: var(--secondary); text-decoration:underline; }
+
+/* Main */
+main { flex-grow:1; max-width:700px; margin:0 auto; }
+main h1 { font-size:1.8rem; margin-bottom:15px; color:var(--primary); }
+main p { margin-bottom:10px; color:var(--content); }
+
+/* Posts */
+article.post-entry {
+  background: var(--entry);
+  margin-bottom:2rem;
+  padding:1.5rem;
+  border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+article.post-entry:hover { box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+article.post-entry h2 { margin-top:0; font-weight:700; }
+article.post-entry h2 a, .post-link { color:var(--primary); text-decoration:none; font-size:1.25rem; transition:0.2s; }
+article.post-entry h2 a:hover, .post-link:hover { color:var(--secondary); text-decoration:underline; }
+article.post-entry p { margin-top:0.5rem; line-height:1.5; color:var(--content); }
+article.post-entry footer { font-size:0.875rem; color:var(--tertiary); border-top:1px solid var(--border); padding-top:0.75rem; margin-top:1rem; }
+
+/* Footer */
+footer { text-align:center; padding:15px 0; font-size:0.85rem; color:var(--tertiary); border-top:1px solid var(--border); margin-top:30px; }
+a { color: var(--secondary); text-decoration:none; transition:0.3s; }
+a:hover { color: var(--primary); text-decoration:underline; }
+footer a { color: var(--tertiary); }
+footer a:hover { color: var(--primary); }
+
+/* --- BOTÓN TOGGLE PAPERMOD --- */
+
+.theme-toggle {
+  --thumb-size: 26px;
+  --toggle-width: 52px;
+  --toggle-height: 30px;
+
+  all: unset;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  padding: 2px 4px;
+  border-radius: 9999px;
+  background-color: var(--entry);
+  border: 2px solid var(--primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  color: var(--primary);
+}
+
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+  stroke: var(--primary);
+  fill: none;
+  transition: stroke 0.3s ease;
+  user-select: none;
+}
+
+.theme-toggle .icon-sun {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+body.light .theme-toggle {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--entry);
+}
+
+body.light .theme-toggle .icon-sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+body.light .theme-toggle .icon-moon {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* El "thumb" que se desliza */
+.theme-toggle .toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  background-color: var(--primary);
+  border-radius: 50%;
+  transition: left 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  will-change: left, background-color;
+}
+
+body.light .theme-toggle .toggle-thumb {
+  left: calc(100% - var(--thumb-size) - 2px);
+  background-color: var(--entry);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
