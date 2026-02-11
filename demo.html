@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Simplificado</title>
+    <link rel="stylesheet" href="simple-style.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="#" title="Firulais Demo">Firulais</a>
+            <button id="theme-toggle" title="Toggle theme">🌙 / ☀️</button>
+        </div>
+        <ul id="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Archive</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="#">WiKi</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main">
+    <article class="first-entry home-info">
+        <h1>Bienvenido a Firulais Demo</h1>
+        <p>👋 Este es un ejemplo simplificado del tema Firulais.</p>
+        <ul>
+            <li>Diseño limpio y responsivo.</li>
+            <li>Colores claros y oscuros con toggle.</li>
+            <li>Botones y links estilizados.</li>
+        </ul>
+    </article>
+
+    <article class="post-entry">
+        <h2>Instalación</h2>
+        <p>Instrucciones para instalar Firulais y configurarlo fácilmente.</p>
+        <footer>Publicado el 20 Enero, 2021 · 5 min lectura</footer>
+    </article>
+
+    <article class="post-entry">
+        <h2>Características</h2>
+        <p>Lista de todas las características y mods disponibles.</p>
+        <footer>Publicado el 20 Enero, 2021 · 7 min lectura</footer>
+    </article>
+</main>
+
+<footer class="footer">
+    <span>© Firulais Contributors</span> · 
+    <span>Powered by Firulais</span>
+</footer>
+
+<script>
+    // Toggle de tema
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.documentElement;
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = "light";
+            localStorage.setItem("pref-theme", "light");
+        } else {
+            html.dataset.theme = "dark";
+            localStorage.setItem("pref-theme", "dark");
+        }
+    });
+
+    // Cargar preferencia guardada
+    const savedTheme = localStorage.getItem("pref-theme");
+    if(savedTheme) {
+        document.documentElement.dataset.theme = savedTheme;
+    }
+</script>
+
+</body>
+</html>
