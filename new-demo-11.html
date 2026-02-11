@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog de Nicolás Videla</title>
+  <link rel="stylesheet" href="css/new-style-11.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">Acerca</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- === BOTÓN EXACTO DE PAPERMOD === -->
+    <button id="theme-toggle" aria-label="Toggle theme">
+      <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+    <!-- === FIN BOTÓN === -->
+
+  </header>
+
+  <main>
+    <h1>Blog de Nicolás Videla</h1>
+    <p>
+      Aut et sint tempore reprehenderit sit quam dolores.<br />
+      Aperiam in repellat provident quo similique minima.<br />
+      Officia veniam asperiores repellat voluptatem eius.<br />
+      Repellendus in veniam quis itaque odit.<br />
+      Inventore sed iure velit fugiat.<br />
+      Ullam ut asperiores rerum.
+    </p>
+
+    <article class="post-entry">
+      <h2><a href="#" class="post-link">Segundo post</a></h2>
+      <p>Donec vehicula eros nec leo accumsan venenatis. Duis euismod sapien mauris.</p>
+      <footer>Publicado el 02 de Enero de 2000 · 5 min lectura</footer>
+    </article>
+
+    <article class="post-entry">
+      <h2><a href="#" class="post-link">Primer post</a></h2>
+      <p>Ut fermentum lorem in nisi tincidunt, in lacinia neque dictum. Sed viverra.</p>
+      <footer>Publicado el 01 de Enero de 2000 · 5 min lectura</footer>
+    </article>
+  </main>
+
+  <footer>
+    © 2026 <a href="#">Nicolás Videla</a>
+  </footer>
+
+  <!-- === SCRIPT CORREGIDO PARA CAMBIO DE TEMA === -->
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const html = document.documentElement;
+
+    function applyTheme(theme) {
+      html.setAttribute("data-theme", theme);
+      localStorage.setItem("pref-theme", theme);
+    }
+
+    // Cargar tema guardado o preferencia del sistema
+    const savedTheme = localStorage.getItem("pref-theme");
+    if (savedTheme === "dark" || savedTheme === "light") {
+      applyTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      applyTheme(prefersDark ? "dark" : "light");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      const currentTheme = html.getAttribute("data-theme");
+      applyTheme(currentTheme === "dark" ? "light" : "dark");
+    });
+  </script>
+</body>
+</html>
