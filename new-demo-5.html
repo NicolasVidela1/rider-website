@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog de Nicolás Videla</title>
+  <link rel="stylesheet" href="css/new-style-3.css" />
+</head>
+<body>
+  <header>
+    <!-- <div class="logo">Nicolás Videla 🌙 / ☀️</div> -->
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="about.html">Acerca</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+        <!-- <li><a href="#">...</a></li> -->
+      </ul>
+    </nav>
+    <!-- Botón toggle reemplazado por slider -->
+    <label class="theme-switch">
+      <input type="checkbox" id="toggleThemeBtn">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <h1>Blog de Nicolás Videla</h1>
+    <p>
+      Aut et sint tempore reprehenderit sit quam dolores.<br />
+      Aperiam in repellat provident quo similique minima.<br />
+      Officia veniam asperiores repellat voluptatem eius.<br />
+      Repellendus in veniam quis itaque odit.<br />
+      Inventore sed iure velit fugiat.<br />
+      Ullam ut asperiores rerum.
+    </p>
+
+    <article class="post-entry">
+      <h2><a href="#" class="post-link">Segundo post</a></h2>
+      <p>Donec vehicula eros nec leo accumsan venenatis. Duis euismod sapien mauris.</p>
+      <footer>Publicado el 02 de Enero de 2000 · 5 min lectura</footer>
+    </article>
+
+    <article class="post-entry">
+      <h2><a href="#" class="post-link">Primer post</a></h2>
+      <p>Ut fermentum lorem in nisi tincidunt, in lacinia neque dictum. Sed viverra.</p>
+      <footer>Publicado el 01 de Enero de 2000 · 5 min lectura</footer>
+    </article>
+  </main>
+
+  <footer>
+    © 2026 <a href="#">Nicolás Videla</a>
+  </footer>
+
+  <script>
+    // Toggle modo oscuro / claro usando el slider
+    const btn = document.getElementById('toggleThemeBtn');
+    const body = document.body;
+
+    btn.addEventListener('change', () => {
+      body.classList.toggle('light');
+    });
+  </script>
+</body>
+</html>
